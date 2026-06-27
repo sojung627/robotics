@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .title { font: 800 56px "Malgun Gothic", Arial, sans-serif; fill: #0f2a5f; }
+      .subtitle { font: 700 28px "Malgun Gothic", Arial, sans-serif; fill: #1f2937; }
+      .section { font: 800 28px "Malgun Gothic", Arial, sans-serif; fill: white; }
+      .head-blue { fill: #0b57b7; }
+      .head-green { fill: #15803d; }
+      .head-orange { fill: #ea580c; }
+      .body-title { font: 800 24px "Malgun Gothic", Arial, sans-serif; fill: #0b4ea2; }
+      .body-title-orange { font: 800 24px "Malgun Gothic", Arial, sans-serif; fill: #c2410c; }
+      .text { font: 600 20px "Malgun Gothic", Arial, sans-serif; fill: #111827; }
+      .small { font: 600 17px "Malgun Gothic", Arial, sans-serif; fill: #334155; }
+      .formula { font: 700 22px "Times New Roman", serif; fill: #111827; }
+      .num { font: 800 22px Arial, sans-serif; fill: white; }
+      .arrow { fill: #111827; }
+      .summary-title { font: 800 28px "Malgun Gothic", Arial, sans-serif; fill: white; }
+      .summary { font: 800 26px "Malgun Gothic", Arial, sans-serif; fill: #0f2a5f; }
+    </style>
+    <marker id="arrow" markerWidth="24" markerHeight="20" refX="22" refY="10" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M 0 0 L 24 10 L 0 20 z" class="arrow"/>
+    </marker>
+    <linearGradient id="panelBg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+  <text x="800" y="78" text-anchor="middle" class="title">모터 핵심 정리 흐름도</text>
+  <text x="800" y="122" text-anchor="middle" class="subtitle">DC 모터 · 서보 모터 · 제어 원리 · 모터 드라이버</text>
+
+  <g transform="translate(35 180)">
+    <rect x="0" y="25" width="375" height="540" rx="16" fill="url(#panelBg)" stroke="#0b57b7" stroke-width="3"/>
+    <rect x="25" y="0" width="325" height="48" rx="8" class="head-blue"/>
+    <text x="187" y="33" text-anchor="middle" class="section">1. 모터 기본 유형</text>
+
+    <rect x="20" y="70" width="170" height="300" rx="12" fill="#ffffff" stroke="#0b57b7" stroke-width="2"/>
+    <rect x="20" y="70" width="170" height="42" rx="10" fill="#0b57b7"/>
+    <text x="105" y="99" text-anchor="middle" class="section" font-size="22">DC 모터</text>
+    <g transform="translate(50 145)">
+      <rect x="34" y="20" width="90" height="58" rx="24" fill="#e5e7eb" stroke="#111827" stroke-width="3"/>
+      <ellipse cx="34" cy="49" rx="20" ry="29" fill="#cbd5e1" stroke="#111827" stroke-width="3"/>
+      <circle cx="34" cy="49" r="7" fill="#94a3b8"/>
+      <line x1="2" y1="49" x2="34" y2="49" stroke="#111827" stroke-width="5"/>
+      <path d="M124 35 C145 25,145 73,124 63" fill="none" stroke="#dc2626" stroke-width="4"/>
+    </g>
+    <circle cx="38" cy="290" r="5" fill="#0b57b7"/><text x="55" y="297" class="text">연속 회전</text>
+    <circle cx="38" cy="330" r="5" fill="#0b57b7"/><text x="55" y="337" class="text">PWM 속도 제어</text>
+    <circle cx="38" cy="370" r="5" fill="#0b57b7"/><text x="55" y="377" class="text">바퀴 구동 적합</text>
+
+    <rect x="205" y="70" width="150" height="300" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+    <rect x="205" y="70" width="150" height="42" rx="10" fill="#ea580c"/>
+    <text x="280" y="99" text-anchor="middle" class="section" font-size="22">서보 모터</text>
+    <g transform="translate(240 147)">
+      <rect x="0" y="40" width="86" height="72" rx="9" fill="#374151" stroke="#111827" stroke-width="3"/>
+      <rect x="20" y="25" width="46" height="18" rx="5" fill="#111827"/>
+      <path d="M12 25 H74 L68 10 H18 Z" fill="#4b5563" stroke="#111827" stroke-width="3"/>
+      <path d="M73 78 C102 62,102 100,73 89" fill="none" stroke="#ea580c" stroke-width="4"/>
+    </g>
+    <circle cx="222" cy="290" r="5" fill="#ea580c"/><text x="238" y="297" class="text">각도 제어</text>
+    <circle cx="222" cy="330" r="5" fill="#ea580c"/><text x="238" y="337" class="text">위치 제어</text>
+    <circle cx="222" cy="370" r="5" fill="#ea580c"/><text x="238" y="377" class="text">조향·집게</text>
+
+    <rect x="22" y="408" width="330" height="65" rx="12" fill="#f8fafc" stroke="#0b57b7" stroke-width="2" stroke-dasharray="7 5"/>
+    <circle cx="56" cy="441" r="17" fill="#0b57b7"/>
+    <path d="M47 441 l7 7 l15 -20" fill="none" stroke="#fff" stroke-width="5"/>
+    <text x="85" y="448" class="text">운반 로봇 바퀴에는 DC 기어드 모터 적합</text>
+  </g>
+
+  <g transform="translate(430 180)">
+    <rect x="0" y="25" width="310" height="540" rx="16" fill="url(#panelBg)" stroke="#0b57b7" stroke-width="3"/>
+    <rect x="25" y="0" width="260" height="48" rx="8" class="head-blue"/>
+    <text x="155" y="33" text-anchor="middle" class="section">2. 모터 사양 항목</text>
+    <g stroke="#cbd5e1" stroke-width="2">
+      <line x1="0" y1="165" x2="310" y2="165"/>
+      <line x1="0" y1="295" x2="310" y2="295"/>
+      <line x1="0" y1="425" x2="310" y2="425"/>
+      <line x1="155" y1="48" x2="155" y2="565"/>
+    </g>
+    <text x="68" y="100" class="body-title">전압</text><text x="68" y="132" class="small">배터리 기준</text>
+    <text x="220" y="100" class="body-title">전류</text><text x="205" y="132" class="small">드라이버 용량</text>
+    <text x="68" y="230" class="body-title">RPM</text><text x="55" y="262" class="small">회전 속도</text>
+    <text x="220" y="230" class="body-title">토크</text><text x="200" y="262" class="small">회전 힘</text>
+    <text x="60" y="360" class="body-title">감속비</text><text x="43" y="392" class="small">속도↓ 토크↑</text>
+    <text x="212" y="360" class="body-title">출력</text><text x="200" y="392" class="small">P = τω</text>
+    <text x="55" y="490" class="body-title">엔코더</text><text x="38" y="522" class="small">속도·거리 측정</text>
+    <text x="205" y="490" class="body-title">크기·무게</text><text x="200" y="522" class="small">구조 영향</text>
+  </g>
+
+  <g transform="translate(775 180)">
+    <rect x="0" y="25" width="495" height="540" rx="16" fill="url(#panelBg)" stroke="#15803d" stroke-width="3"/>
+    <rect x="22" y="0" width="450" height="48" rx="8" class="head-green"/>
+    <text x="247" y="33" text-anchor="middle" class="section">3. 모터 제어 원리</text>
+
+    <g transform="translate(25 74)">
+      <rect x="0" y="0" width="88" height="72" rx="8" fill="#ffffff"/>
+      <rect x="18" y="14" width="52" height="52" rx="7" fill="#334155" stroke="#111827" stroke-width="4"/>
+      <text x="44" y="106" text-anchor="middle" class="text">MCU</text>
+      <text x="130" y="42" class="body-title" fill="#15803d">PWM + DIR</text>
+      <line x1="100" y1="38" x2="176" y2="38" stroke="#15803d" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect x="190" y="8" width="68" height="60" rx="6" fill="#22c55e" stroke="#166534" stroke-width="3"/>
+      <circle cx="208" cy="25" r="5" fill="#064e3b"/><circle cx="240" cy="25" r="5" fill="#064e3b"/>
+      <circle cx="208" cy="51" r="5" fill="#064e3b"/><circle cx="240" cy="51" r="5" fill="#064e3b"/>
+      <text x="224" y="106" text-anchor="middle" class="text">드라이버</text>
+      <line x1="270" y1="38" x2="335" y2="38" stroke="#15803d" stroke-width="5" marker-end="url(#arrow)"/>
+      <rect x="350" y="19" width="72" height="42" rx="20" fill="#e5e7eb" stroke="#111827" stroke-width="3"/>
+      <circle cx="423" cy="40" r="24" fill="#334155" stroke="#111827" stroke-width="3"/>
+      <text x="385" y="106" text-anchor="middle" class="text">DC 모터</text>
+    </g>
+
+    <rect x="25" y="215" width="445" height="92" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+    <rect x="38" y="202" width="112" height="34" rx="8" fill="#15803d"/>
+    <text x="94" y="226" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="800" fill="#fff">A) 속도 제어</text>
+    <text x="55" y="268" class="formula">Duty = t<tspan baseline-shift="sub" font-size="15">on</tspan> / T × 100%</text>
+    <line x1="260" y1="263" x2="430" y2="263" stroke="#16a34a" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="260" cy="263" r="8" fill="#16a34a"/><circle cx="330" cy="263" r="8" fill="#16a34a"/><circle cx="430" cy="263" r="8" fill="#0b57b7"/>
+    <text x="252" y="292" class="small">0%</text><text x="316" y="292" class="small">50%</text><text x="410" y="292" class="small">100%</text>
+
+    <rect x="25" y="330" width="445" height="74" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <rect x="38" y="317" width="112" height="34" rx="8" fill="#ea580c"/>
+    <text x="94" y="341" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="800" fill="#fff">B) 방향 제어</text>
+    <text x="55" y="378" class="text">+ / - 극성 변경 -> 정회전 / 역회전</text>
+
+    <rect x="25" y="430" width="445" height="88" rx="12" fill="#eff6ff" stroke="#0b57b7" stroke-width="2"/>
+    <rect x="38" y="417" width="112" height="34" rx="8" fill="#0b57b7"/>
+    <text x="94" y="441" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="800" fill="#fff">C) 차동 구동</text>
+    <text x="55" y="475" class="text">왼쪽 속도 = 오른쪽 속도 -> 직진</text>
+    <text x="55" y="506" class="text">왼쪽 속도 ≠ 오른쪽 속도 -> 회전</text>
+  </g>
+
+  <g transform="translate(1305 180)">
+    <rect x="0" y="25" width="260" height="540" rx="16" fill="url(#panelBg)" stroke="#ea580c" stroke-width="3"/>
+    <rect x="20" y="0" width="220" height="48" rx="8" class="head-orange"/>
+    <text x="130" y="33" text-anchor="middle" class="section">4. 모터 드라이버</text>
+    <text x="25" y="88" class="text">• 작은 제어 신호 증폭</text>
+    <text x="25" y="122" class="text">• 모터에 전압·전류 공급</text>
+    <text x="25" y="156" class="text">• PWM으로 속도 제어</text>
+    <text x="25" y="190" class="text">• 회전 방향 전환</text>
+    <text x="25" y="224" class="text">• 과전류 보호 기능</text>
+
+    <rect x="22" y="260" width="216" height="170" rx="12" fill="#ffffff" stroke="#ea580c" stroke-width="2"/>
+    <rect x="55" y="245" width="150" height="34" rx="8" fill="#ea580c"/>
+    <text x="130" y="269" text-anchor="middle" font-family="Malgun Gothic, Arial, sans-serif" font-size="19" font-weight="800" fill="#fff">H-브리지</text>
+    <line x1="64" y1="300" x2="196" y2="300" stroke="#111827" stroke-width="4"/>
+    <line x1="64" y1="390" x2="196" y2="390" stroke="#111827" stroke-width="4"/>
+    <circle cx="130" cy="345" r="25" fill="#ffffff" stroke="#111827" stroke-width="4"/>
+    <text x="130" y="354" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800">M</text>
+    <line x1="64" y1="300" x2="95" y2="345" stroke="#111827" stroke-width="4"/>
+    <line x1="196" y1="300" x2="165" y2="345" stroke="#111827" stroke-width="4"/>
+    <line x1="64" y1="390" x2="95" y2="345" stroke="#111827" stroke-width="4"/>
+    <line x1="196" y1="390" x2="165" y2="345" stroke="#111827" stroke-width="4"/>
+    <text x="122" y="294" class="text" fill="#dc2626">V+</text>
+    <text x="112" y="420" class="text">GND</text>
+
+    <rect x="22" y="458" width="216" height="68" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <text x="40" y="500" class="text">PWM + DIR -> H-Bridge -> Motor</text>
+  </g>
+
+  <g stroke="#111827" stroke-width="5" fill="none" marker-end="url(#arrow)">
+    <line x1="410" y1="450" x2="425" y2="450"/>
+    <line x1="740" y1="450" x2="770" y2="450"/>
+    <line x1="1270" y1="450" x2="1300" y2="450"/>
+  </g>
+
+  <g transform="translate(35 775)">
+    <rect x="0" y="0" width="1530" height="90" rx="16" fill="#eff6ff" stroke="#0b57b7" stroke-width="3"/>
+    <rect x="0" y="0" width="180" height="90" rx="16" fill="#0b57b7"/>
+    <text x="90" y="38" text-anchor="middle" class="summary-title">핵심</text>
+    <text x="90" y="70" text-anchor="middle" class="summary-title">요약</text>
+    <circle cx="238" cy="45" r="27" fill="#0b57b7"/><text x="238" y="55" text-anchor="middle" class="num" font-size="26">1</text>
+    <text x="390" y="55" text-anchor="middle" class="summary">DC 모터: 바퀴 구동</text>
+    <line x1="535" y1="15" x2="535" y2="75" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 5"/>
+    <circle cx="590" cy="45" r="27" fill="#ea580c"/><text x="590" y="55" text-anchor="middle" class="num" font-size="26">2</text>
+    <text x="735" y="55" text-anchor="middle" class="summary" fill="#c2410c">서보 모터: 위치 제어</text>
+    <line x1="890" y1="15" x2="890" y2="75" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 5"/>
+    <circle cx="945" cy="45" r="27" fill="#15803d"/><text x="945" y="55" text-anchor="middle" class="num" font-size="26">3</text>
+    <text x="1080" y="55" text-anchor="middle" class="summary" fill="#15803d">PWM: 속도 조절</text>
+    <line x1="1210" y1="15" x2="1210" y2="75" stroke="#93c5fd" stroke-width="2" stroke-dasharray="6 5"/>
+    <circle cx="1265" cy="45" r="27" fill="#6d28d9"/><text x="1265" y="55" text-anchor="middle" class="num" font-size="26">4</text>
+    <text x="1400" y="55" text-anchor="middle" class="summary" fill="#5b21b6">드라이버: 전력 제어</text>
+  </g>
+</svg>
